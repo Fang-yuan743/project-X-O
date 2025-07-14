@@ -11,14 +11,22 @@ const winningCombos = [
 ]
 /*---------------------------- Variables (state) ----------------------------*/
 let board = ["", "", "", "", "", "", "", "", ""]
+let board2 = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 let turn = "X"
 let winner = false
 let tie = false
 /*------------------------ Cached Element References ------------------------*/
 const sqrElem = document.querySelectorAll(".sqr")
+const sqrElem2 = document.querySelectorAll(".sqr2")
 const msgElem = document.querySelector("#message")
 const resetBtnElem = document.querySelector("#reset")
-const untilFound = document.querySelector("#hidden")
+const untilFound = document.querySelector(".hidden")
+const boardElem = document.querySelector(".board")
+const boardElem2 = document.querySelector(".board2")
+const choiElem1 = document.querySelector("#choi1")
+const choiElem2 = document.querySelector("#choi2")
+const choiElem3 = document.querySelector("#choi3")
+const choiElem4 = document.querySelector("#choi4")
 /*-------------------------------- Functions --------------------------------*/
 function init() {
   board = ["", "", "", "", "", "", "", "", ""]
@@ -117,12 +125,17 @@ for (let i = 0; i < 9; i++) {
 
 resetBtnElem.addEventListener("click", init)
 
-sqrElem.forEach((sqr) => {
-  sqr.classList.add("hidden")
+choiElem1.addEventListener("click", () => {
+  choiElem1.classList.add("hidden")
+  choiElem2.addEventListener("click", () => {
+    choiElem2.classList.add("hidden")
+    boardElem.classList.remove("hidden")
+    msgElem.classList.remove("hidden")
+  })
 })
-console.log(untilFound)
 
-untilFound.style.font
+boardElem.classList.add("hidden")
+msgElem.classList.add("hidden")
 untilFound.classList.remove("hidden")
 
 document.addEventListener("DOMContentLoaded", init)
