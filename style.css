@@ -47,6 +47,9 @@ body {
   background-color: #2a7f90;
   font: sans-serif;
 }
+#reset:active {
+  transform: scale(90%);
+}
 #reset2 {
   display: flex;
   flex-direction: column;
@@ -57,18 +60,70 @@ body {
   background-color: #2a7f90;
   font: sans-serif;
 }
+#reset2:active {
+  transform: scale(90%);
+}
 #message {
-  color: rgb(45, 138, 36);
+  color: rgb(89 139 255);
   border-radius: 5px 5px;
-  text-align: center;
+  margin-top: -10px;
 }
 #msg {
   color: #1b9069;
+  font-size: 40px;
+}
+.choice1 {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  border-radius: 7px 7px;
+  margin: auto;
+  margin-top: 150px;
+  background-color: #2a7f90;
+  font: sans-serif;
+}
+.choice2:active {
+  transform: scale(90%);
+}
+.choice2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 35px;
+  border-radius: 7px 7px;
+  margin: auto;
+  margin-top: 150px;
+  background-color: #2a7f90;
+  font: sans-serif;
+}
+.choice2:active {
+  transform: scale(90%);
+}
+.choice3 {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  border-radius: 7px 7px;
+  margin: auto;
+  margin-top: 35px;
+  background-color: #2a7f90;
+  font: sans-serif;
+}
+.choice3:active {
+  transform: scale(90%);
+}
+.choice4 {
+  display: flex;
+  flex-direction: column;
+  font-size: 35px;
+  border-radius: 7px 7px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #2a7f90;
+  font: sans-serif;
+}
+.choice4:active {
+  transform: scale(90%);
 }
 .hidden {
   display: none;
-  color: rgb(45, 138, 36);
-  border-radius: 5px 5px;
-  text-align: center;
-  font-size: larger;
 }

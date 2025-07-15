@@ -56,7 +56,7 @@ const resetBtnElem2 = document.querySelector("#reset2")
 const choiceElem3 = document.querySelector("#choice3")
 const choiceElem4 = document.querySelector("#choice4")
 
-const untilFound = document.querySelector(".hidden")
+const untilFound = document.querySelector("#hidden")
 /*-------------------------------- Functions --------------------------------*/
 function init() {
   board = ["", "", "", "", "", "", "", "", ""]
@@ -64,6 +64,7 @@ function init() {
   turn = "X"
   winner = false
   tie = false
+  msgElem.style.color = ""
   render()
 }
 
@@ -78,7 +79,6 @@ function updateBoard() {
     sqrElem[index].textContent = elem
     if (board[index] === "") {
       sqrElem[index].style.backgroundColor = ""
-      msgElem.style.color = ""
     }
   })
 }
@@ -87,7 +87,6 @@ function updateBoard2() {
     sqrElem2[index].textContent = elem2
     if (board2[index] === "") {
       sqrElem2[index].style.backgroundColor = ""
-      msgElem.style.color = ""
     }
   })
 }
@@ -214,9 +213,28 @@ for (let i = 0; i < 16; i++) {
 resetBtnElem.addEventListener("click", init)
 resetBtnElem2.addEventListener("click", init)
 
+/*---------------------------- hidden and shown ----------------------------*/
+choiceElem2.classList.add("hidden")
+choiceElem4.classList.add("hidden")
+boardElem.classList.add("hidden")
+boardElem2.classList.add("hidden")
+msgElem.classList.add("hidden")
+untilFound.classList.add("hidden")
+
 choiceElem1.addEventListener("click", () => {
   choiceElem1.classList.add("hidden")
+  choiceElem3.classList.add("hidden")
+  choiceElem2.classList.remove("hidden")
+  choiceElem4.classList.remove("hidden")
+
   choiceElem2.addEventListener("click", () => {
+    choiceElem2.classList.add("hidden")
+    choiceElem4.classList.add("hidden")
+    boardElem.classList.remove("hidden")
+    msgElem.classList.remove("hidden")
+  })
+  choiceElem4.addEventListener("click", () => {
+    choiceElem4.classList.add("hidden")
     choiceElem2.classList.add("hidden")
     boardElem.classList.remove("hidden")
     msgElem.classList.remove("hidden")
@@ -225,17 +243,22 @@ choiceElem1.addEventListener("click", () => {
 
 choiceElem3.addEventListener("click", () => {
   choiceElem3.classList.add("hidden")
-  choiceElem4.addEventListener("click", () => {
+  choiceElem1.classList.add("hidden")
+  choiceElem2.classList.remove("hidden")
+  choiceElem4.classList.remove("hidden")
+
+  choiceElem2.addEventListener("click", () => {
+    choiceElem2.classList.add("hidden")
     choiceElem4.classList.add("hidden")
     boardElem2.classList.remove("hidden")
     msgElem.classList.remove("hidden")
   })
+  choiceElem4.addEventListener("click", () => {
+    choiceElem4.classList.add("hidden")
+    choiceElem2.classList.add("hidden")
+    boardElem2.classList.remove("hidden")
+    msgElem.classList.remove("hidden")
+  })
 })
-choiceElem4.classList.remove("hidden")
-boardElem2.classList.add("hidden")
-
-boardElem.classList.add("hidden")
-msgElem.classList.add("hidden")
-untilFound.classList.remove("hidden")
 
 document.addEventListener("DOMContentLoaded", init)
