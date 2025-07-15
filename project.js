@@ -201,6 +201,10 @@ function switchPlayerTurn() {
   }
 }
 
+function computer() {
+  if (winner === false) {
+  }
+}
 /*----------------------------- Event Listeners ----------------------------*/
 for (let i = 0; i < 9; i++) {
   sqrElem[i].addEventListener("click", handleClick)
@@ -260,5 +264,5 @@ choiceElem3.addEventListener("click", () => {
     msgElem.classList.remove("hidden")
   })
 })
-
+//let randomInd = Math.floor(Math.random() * 9)
 document.addEventListener("DOMContentLoaded", init)

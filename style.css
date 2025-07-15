@@ -40,7 +40,7 @@ body {
 #reset {
   display: flex;
   flex-direction: column;
-  font-size: 25px;
+  font-size: 27px;
   border-radius: 7px 7px;
   margin: auto;
   margin-top: 25px;
@@ -53,7 +53,7 @@ body {
 #reset2 {
   display: flex;
   flex-direction: column;
-  font-size: 25px;
+  font-size: 27px;
   border-radius: 7px 7px;
   margin: auto;
   margin-top: 25px;
@@ -67,6 +67,7 @@ body {
   color: rgb(89 139 255);
   border-radius: 5px 5px;
   margin-top: -10px;
+  font-size: 27px;
 }
 #msg {
   color: #1b9069;
@@ -78,7 +79,7 @@ body {
   font-size: 40px;
   border-radius: 7px 7px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 135px;
   background-color: #2a7f90;
   font: sans-serif;
 }
@@ -91,7 +92,7 @@ body {
   font-size: 35px;
   border-radius: 7px 7px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 135px;
   background-color: #2a7f90;
   font: sans-serif;
 }
