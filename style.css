@@ -47,6 +47,16 @@ body {
   background-color: #2a7f90;
   font: sans-serif;
 }
+#reset2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  border-radius: 7px 7px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #2a7f90;
+  font: sans-serif;
+}
 #message {
   color: rgb(45, 138, 36);
   border-radius: 5px 5px;

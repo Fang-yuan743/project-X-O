@@ -9,6 +9,32 @@ const winningCombos = [
   [0, 4, 8],
   [2, 4, 6],
 ]
+const winningCombos2 = [
+  [0, 1, 2],
+  [1, 2, 3],
+  [4, 5, 6],
+  [5, 6, 7],
+  [8, 9, 10],
+  [9, 10, 11],
+  [12, 13, 14],
+  [13, 14, 15],
+  [0, 4, 8],
+  [4, 8, 12],
+  [1, 5, 9],
+  [5, 9, 13],
+  [2, 6, 10],
+  [6, 10, 14],
+  [3, 7, 11],
+  [7, 11, 15],
+  [0, 5, 10],
+  [5, 10, 15],
+  [4, 9, 14],
+  [1, 6, 11],
+  [3, 6, 9],
+  [6, 9, 12],
+  [2, 5, 8],
+  [7, 10, 13],
+]
 /*---------------------------- Variables (state) ----------------------------*/
 let board = ["", "", "", "", "", "", "", "", ""]
 let board2 = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
@@ -101,7 +127,7 @@ function handleClick2(event2) {
     return
   }
   placePiece2(sqrIndex2)
-  checkForWinner()
+  checkForWinner2()
   checkForTie2()
   switchPlayerTurn()
   if (board2[sqrIndex2] === "X") {
@@ -126,6 +152,17 @@ function checkForWinner() {
     let a = board[combo[0]]
     let b = board[combo[1]]
     let c = board[combo[2]]
+    if (a !== "" && a === b && a === c) {
+      winner = true
+    }
+  }
+}
+function checkForWinner2() {
+  for (let i = 0; i < 24; i++) {
+    let combo = winningCombos2[i]
+    let a = board2[combo[0]]
+    let b = board2[combo[1]]
+    let c = board2[combo[2]]
     if (a !== "" && a === b && a === c) {
       winner = true
     }
