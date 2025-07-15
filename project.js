@@ -17,19 +17,24 @@ let winner = false
 let tie = false
 /*------------------------ Cached Element References ------------------------*/
 const sqrElem = document.querySelectorAll(".sqr")
-const sqrElem2 = document.querySelectorAll(".sqr2")
-const msgElem = document.querySelector("#message")
-const resetBtnElem = document.querySelector("#reset")
-const untilFound = document.querySelector(".hidden")
 const boardElem = document.querySelector(".board")
-const boardElem2 = document.querySelector(".board2")
+const resetBtnElem = document.querySelector("#reset")
 const choiElem1 = document.querySelector("#choi1")
 const choiElem2 = document.querySelector("#choi2")
+
+const msgElem = document.querySelector("#message")
+
+const sqrElem2 = document.querySelectorAll(".sqr2")
+const boardElem2 = document.querySelector(".board2")
+const resetBtnElem2 = document.querySelector("#reset2")
 const choiElem3 = document.querySelector("#choi3")
 const choiElem4 = document.querySelector("#choi4")
+
+const untilFound = document.querySelector(".hidden")
 /*-------------------------------- Functions --------------------------------*/
 function init() {
   board = ["", "", "", "", "", "", "", "", ""]
+  board2 = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
   turn = "X"
   winner = false
   tie = false
@@ -46,6 +51,13 @@ function updateBoard() {
     sqrElem[index].textContent = elem
     if (board[index] === "") {
       sqrElem[index].style.backgroundColor = ""
+      msgElem.style.color = ""
+    }
+  })
+  board2.forEach((elem2, index) => {
+    sqrElem2[index].textContent = elem2
+    if (board2[index] === "") {
+      sqrElem2[index].style.backgroundColor = ""
       msgElem.style.color = ""
     }
   })
@@ -68,7 +80,11 @@ function handleClick(event) {
   if (board[sqrIndex] || winner === true) {
     return
   }
-  placePiece(sqrIndex)
+  const sqrIndex2 = event.target.id
+  if (board2[sqrIndex] || winner === true) {
+    return
+  }
+  placePiece(sqrIndex, sqrIndex2)
   checkForWinner()
   checkForTie()
   switchPlayerTurn()
@@ -78,11 +94,18 @@ function handleClick(event) {
   } else if (board[sqrIndex] === "O") {
     event.target.style.backgroundColor = "#89621fff"
   }
+  if (board2[sqrIndex2] === "X") {
+    event.target.style.backgroundColor = "#702246ff"
+    console.log("hi1")
+  } else if (board2[sqrIndex2] === "O") {
+    event.target.style.backgroundColor = "#89621fff"
+  }
   render()
 }
 
 function placePiece(index) {
   board[index] = turn
+  board2[index] = turn
 }
 
 function checkForWinner() {
@@ -107,6 +130,15 @@ function checkForTie() {
     } else {
       tie = true
     }
+  for (let i = 0; i < 16; i++)
+    if (winner === true) {
+      return
+    } else if (board2[i] === "") {
+      tie = false
+      return
+    } else {
+      tie = true
+    }
 }
 
 function switchPlayerTurn() {
@@ -123,7 +155,12 @@ for (let i = 0; i < 9; i++) {
   sqrElem[i].addEventListener("click", handleClick)
 }
 
+for (let i = 0; i < 16; i++) {
+  sqrElem2[i].addEventListener("click", handleClick)
+}
+
 resetBtnElem.addEventListener("click", init)
+resetBtnElem2.addEventListener("click", init)
 
 choiElem1.addEventListener("click", () => {
   choiElem1.classList.add("hidden")

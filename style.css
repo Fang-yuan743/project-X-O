@@ -5,14 +5,18 @@ body {
   margin: 1;
   text-align: center;
 }
-
 .board {
   display: flex;
   flex-wrap: wrap;
   width: 325px;
   margin: auto;
 }
-
+.board2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 425px;
+  margin: auto;
+}
 .sqr {
   width: 30%;
   aspect-ratio: 1/1;
@@ -23,7 +27,16 @@ body {
   background-color: #2d4593;
   color: rgb(179, 172, 172);
 }
-
+.sqr2 {
+  width: 22%;
+  aspect-ratio: 1/1;
+  border: 3px solid #1e7f9f;
+  font-size: 64px;
+  border-radius: 9px 9px;
+  margin: 2px;
+  background-color: #2d4593;
+  color: rgb(179, 172, 172);
+}
 #reset {
   display: flex;
   flex-direction: column;
