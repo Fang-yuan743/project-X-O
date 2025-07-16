@@ -41,6 +41,7 @@ let board2 = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 let turn = "X"
 let winner = false
 let tie = false
+let vsComputer = false
 /*------------------------ Cached Element References ------------------------*/
 const sqrElem = document.querySelectorAll(".sqr")
 const boardElem = document.querySelector(".board")
@@ -112,7 +113,13 @@ function handleClick(event) {
   checkForWinner()
   checkForTie()
   switchPlayerTurn()
-  computer()
+
+  if (vsComputer && turn === "O" && winner === false && tie === false){
+    computer()
+    checkForWinner()
+    checkForTie()
+    switchPlayerTurn()
+  }
   if (board[sqrIndex] === "X") {
     event.target.style.backgroundColor = "#702246ff"
     console.log("hi")
@@ -204,17 +211,39 @@ function switchPlayerTurn() {
 }
 
 function computer() {
-  let randomInd = Math.floor(Math.random() * 9)
-  for (let i = 0; i < 9; i++)
-    if (board[4] === "") {
+  if (winner === true || tie === true){
+    return
+  }
+  let corners = ['0', '2', '6', '8']
+  let availableCorners = []
+  let middel = ['1', '3', '5', '7']
+  let availableMiddel = []
+  if (board[4] === "") {
       board[4] = "O"
       return
-    } else if (board[0 && 2 && 6 && 8] === "") {
-      board[randomInd] = "O"
-      return
-    }
-}
-
+  } for (let i = 0; i < 4; i++){
+      if (board[corners[i]] === ""){
+        availableCorners.push(corners[i])
+        console.log('hhh')
+    }} if (availableCorners.length > 0){
+          let randomIndex = Math.floor(Math.random() * availableCorners.length)
+          board[availableCorners[randomIndex]] = 'O'
+          return
+      } for (let i = 0; i < 4; i++){
+        if (board[middel[i]] === ""){
+        availableMiddel.push(middel[i])
+        console.log('hhh')
+      }} if (availableMiddel.length > 0){
+          let randomIndex = Math.floor(Math.random() * availableMiddel.length)
+          board[availableMiddel[randomIndex]] = 'O'
+          return
+      } for (let i = 0; i < 9; i++){
+        if (board[i] === ""){
+          board[i] = 'O'
+          return
+        }
+      }
+  }
 /*-------------------------- Event Listeners ----------------------------*/
 for (let i = 0; i < 9; i++) {
   sqrElem[i].addEventListener("click", handleClick)
@@ -248,6 +277,7 @@ choiceElem1.addEventListener("click", () => {
     msgElem.classList.remove("hidden")
   })
   choiceElem4.addEventListener("click", () => {
+    vsComputer = true
     choiceElem4.classList.add("hidden")
     choiceElem2.classList.add("hidden")
     boardElem.classList.remove("hidden")
@@ -268,6 +298,7 @@ choiceElem3.addEventListener("click", () => {
     msgElem.classList.remove("hidden")
   })
   choiceElem4.addEventListener("click", () => {
+    vsComputer = true
     choiceElem4.classList.add("hidden")
     choiceElem2.classList.add("hidden")
     boardElem2.classList.remove("hidden")
