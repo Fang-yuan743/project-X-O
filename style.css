@@ -1,6 +1,6 @@
 body {
   background-color: rgb(29, 63, 76);
-  /* Use a system font, if none are available use an available sans-sarif */
+  /* Use a system font, if none are available use an available sans-serif */
   font-family: system-ui, sans-serif;
   margin: 1;
   text-align: center;

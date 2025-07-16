@@ -112,6 +112,7 @@ function handleClick(event) {
   checkForWinner()
   checkForTie()
   switchPlayerTurn()
+  computer()
   if (board[sqrIndex] === "X") {
     event.target.style.backgroundColor = "#702246ff"
     console.log("hi")
@@ -135,6 +136,7 @@ function handleClick2(event2) {
   } else if (board2[sqrIndex2] === "O") {
     event2.target.style.backgroundColor = "#89621fff"
   }
+  computer()
   render()
 }
 
@@ -202,10 +204,18 @@ function switchPlayerTurn() {
 }
 
 function computer() {
-  if (winner === false) {
-  }
+  let randomInd = Math.floor(Math.random() * 9)
+  for (let i = 0; i < 9; i++)
+    if (board[4] === "") {
+      board[4] = "O"
+      return
+    } else if (board[0 && 2 && 6 && 8] === "") {
+      board[randomInd] = "O"
+      return
+    }
 }
-/*----------------------------- Event Listeners ----------------------------*/
+
+/*-------------------------- Event Listeners ----------------------------*/
 for (let i = 0; i < 9; i++) {
   sqrElem[i].addEventListener("click", handleClick)
 }
@@ -264,5 +274,5 @@ choiceElem3.addEventListener("click", () => {
     msgElem.classList.remove("hidden")
   })
 })
-//let randomInd = Math.floor(Math.random() * 9)
+
 document.addEventListener("DOMContentLoaded", init)
