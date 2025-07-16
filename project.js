@@ -137,6 +137,14 @@ function handleClick2(event2) {
   checkForWinner2()
   checkForTie2()
   switchPlayerTurn()
+
+  if (vsComputer && turn === "O" && winner === false && tie === false){
+    computer2()
+    checkForWinner2()
+    checkForTie2()
+    switchPlayerTurn()
+  }
+
   if (board2[sqrIndex2] === "X") {
     event2.target.style.backgroundColor = "#702246ff"
     console.log("hi1")
@@ -220,30 +228,50 @@ function computer() {
   let availableMiddel = []
   if (board[4] === "") {
       board[4] = "O"
+      sqrElem[4].style.backgroundColor = "#89621fff"
       return
   } for (let i = 0; i < 4; i++){
       if (board[corners[i]] === ""){
         availableCorners.push(corners[i])
-        console.log('hhh')
     }} if (availableCorners.length > 0){
           let randomIndex = Math.floor(Math.random() * availableCorners.length)
           board[availableCorners[randomIndex]] = 'O'
+          sqrElem[availableCorners[randomIndex]].style.backgroundColor = "#89621fff"
           return
       } for (let i = 0; i < 4; i++){
         if (board[middel[i]] === ""){
         availableMiddel.push(middel[i])
-        console.log('hhh')
       }} if (availableMiddel.length > 0){
           let randomIndex = Math.floor(Math.random() * availableMiddel.length)
           board[availableMiddel[randomIndex]] = 'O'
+          sqrElem[availableMiddel[randomIndex]].style.backgroundColor = "#89621fff"
           return
       } for (let i = 0; i < 9; i++){
         if (board[i] === ""){
           board[i] = 'O'
+          sqrElem[i].style.backgroundColor = "#89621fff"
           return
         }
       }
   }
+function computer2() {
+  if (winner === true || tie === true){
+    return
+  }
+  let bord = []
+    for (let i = 0; i < 16; i++){
+      if (board2[i] === ""){
+        bord.push(i)
+      }
+    } if (bord.length > 0){
+      let rand = Math.floor(Math.random() * bord.length)
+      if (board2[bord[rand]] === ""){
+      board2[bord[rand]] = 'O'
+      sqrElem2[bord[rand]].style.backgroundColor = "#89621fff"
+      return
+    }
+  }
+}
 /*-------------------------- Event Listeners ----------------------------*/
 for (let i = 0; i < 9; i++) {
   sqrElem[i].addEventListener("click", handleClick)
