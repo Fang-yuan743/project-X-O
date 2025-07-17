@@ -57,8 +57,6 @@ const resetBtnElem2 = document.querySelector("#reset2")
 const choiceElem3 = document.querySelector("#choice3")
 const choiceElem4 = document.querySelector("#choice4")
 
-const howElem = document.querySelector("#how")
-
 const backElem = document.querySelector("#back")
 
 const untilFound = document.querySelector("#hidden")
@@ -291,11 +289,6 @@ function back(){
   init()
 }
 /*-------------------------- Event Listeners ----------------------------*/
-howElem.addEventListener('click', () => {
-  //---google translate---//
-  alert('Choose a square and it will be X if you are the first person, and if you are the second person it will be O, and the way to win is to complete 3 squares according to your turn whether you are X or O and they must be consecutive whether vertically, horizontally or diagonally and also if you play 4x4 the way to win will be the same by completing 3 consecutive squares (enjoy)')
-})
-
 for (let i = 0; i < 9; i++) {
   sqrElem[i].addEventListener("click", handleClick)
 }
