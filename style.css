@@ -125,6 +125,30 @@ body {
 .choice4:active {
   transform: scale(90%);
 }
+.back{
+  position: absolute;
+  top: 45px;
+  left: 40px;
+  z-index: 999;
+  font-size: 25px;
+  border-radius: 7px 7px;
+  background-color: #2a7f90;
+}
+.back:active {
+  transform: scale(95%);
+}
+.how{
+  position: absolute;
+  top: 45px;
+  right: 40px;
+  z-index: 999;
+  font-size: 25px;
+  border-radius: 15px 15px;
+  background-color: rgb(152, 119, 61);
+}
+.how:active {
+  transform: scale(95%);
+}
 .hidden {
   display: none;
 }

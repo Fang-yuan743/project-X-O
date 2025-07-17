@@ -57,6 +57,10 @@ const resetBtnElem2 = document.querySelector("#reset2")
 const choiceElem3 = document.querySelector("#choice3")
 const choiceElem4 = document.querySelector("#choice4")
 
+const howElem = document.querySelector("#how")
+
+const backElem = document.querySelector("#back")
+
 const untilFound = document.querySelector("#hidden")
 /*-------------------------------- Functions --------------------------------*/
 function init() {
@@ -115,6 +119,7 @@ function handleClick(event) {
   switchPlayerTurn()
 
   if (vsComputer && turn === "O" && winner === false && tie === false){
+    //---little help here---//
     computer()
     checkForWinner()
     checkForTie()
@@ -139,6 +144,7 @@ function handleClick2(event2) {
   switchPlayerTurn()
 
   if (vsComputer && turn === "O" && winner === false && tie === false){
+    //---little help here---//
     computer2()
     checkForWinner2()
     checkForTie2()
@@ -219,6 +225,7 @@ function switchPlayerTurn() {
 }
 
 function computer() {
+  //---little help here---//
   if (winner === true || tie === true){
     return
   }
@@ -255,6 +262,7 @@ function computer() {
       }
   }
 function computer2() {
+  //---little help here---//
   if (winner === true || tie === true){
     return
   }
@@ -272,7 +280,22 @@ function computer2() {
     }
   }
 }
+function back(){
+  choiceElem1.classList.remove("hidden")
+  choiceElem3.classList.remove("hidden")
+  choiceElem2.classList.add("hidden")
+  choiceElem4.classList.add("hidden")
+  boardElem.classList.add("hidden")
+  boardElem2.classList.add("hidden")
+  msgElem.classList.add("hidden")
+  init()
+}
 /*-------------------------- Event Listeners ----------------------------*/
+howElem.addEventListener('click', () => {
+  //---google translate---//
+  alert('Choose a square and it will be X if you are the first person, and if you are the second person it will be O, and the way to win is to complete 3 squares according to your turn whether you are X or O and they must be consecutive whether vertically, horizontally or diagonally and also if you play 4x4 the way to win will be the same by completing 3 consecutive squares (enjoy)')
+})
+
 for (let i = 0; i < 9; i++) {
   sqrElem[i].addEventListener("click", handleClick)
 }
@@ -284,54 +307,76 @@ for (let i = 0; i < 16; i++) {
 resetBtnElem.addEventListener("click", init)
 resetBtnElem2.addEventListener("click", init)
 
-/*---------------------------- hidden and shown ----------------------------*/
-choiceElem2.classList.add("hidden")
-choiceElem4.classList.add("hidden")
-boardElem.classList.add("hidden")
-boardElem2.classList.add("hidden")
-msgElem.classList.add("hidden")
+/*------------- hidden and shown ---------(i took little help from ai just for decoration)----*/
+back()
 untilFound.classList.add("hidden")
 
+//-------------------jjjj--------------//
 choiceElem1.addEventListener("click", () => {
   choiceElem1.classList.add("hidden")
   choiceElem3.classList.add("hidden")
   choiceElem2.classList.remove("hidden")
   choiceElem4.classList.remove("hidden")
+  
+  backElem.addEventListener('click', back)
 
+  //---------//
   choiceElem2.addEventListener("click", () => {
+    vsComputer = false
     choiceElem2.classList.add("hidden")
     choiceElem4.classList.add("hidden")
+    boardElem2.classList.add('hidden')
     boardElem.classList.remove("hidden")
     msgElem.classList.remove("hidden")
+    
+    backElem.addEventListener('click', back)
   })
+  
   choiceElem4.addEventListener("click", () => {
     vsComputer = true
     choiceElem4.classList.add("hidden")
     choiceElem2.classList.add("hidden")
+    boardElem2.classList.add("hidden")
     boardElem.classList.remove("hidden")
     msgElem.classList.remove("hidden")
+    boardElem2.classList.add("hidden") 
+
+    backElem.addEventListener('click', back)
   })
 })
 
+//-------1213-------//
 choiceElem3.addEventListener("click", () => {
   choiceElem3.classList.add("hidden")
   choiceElem1.classList.add("hidden")
   choiceElem2.classList.remove("hidden")
   choiceElem4.classList.remove("hidden")
-
+  
+  backElem.addEventListener('click', back)
+  
+  //-----//
   choiceElem2.addEventListener("click", () => {
+    vsComputer = false
     choiceElem2.classList.add("hidden")
     choiceElem4.classList.add("hidden")
+    boardElem.classList.add('hidden')
     boardElem2.classList.remove("hidden")
-    msgElem.classList.remove("hidden")
+    msgElem.classList.remove("hidden") 
+    
+    backElem.addEventListener('click', back)
   })
+  
   choiceElem4.addEventListener("click", () => {
     vsComputer = true
     choiceElem4.classList.add("hidden")
     choiceElem2.classList.add("hidden")
+    boardElem.classList.add('hidden')
     boardElem2.classList.remove("hidden")
     msgElem.classList.remove("hidden")
+    
+    backElem.addEventListener('click', back)
   })
 })
+
 
 document.addEventListener("DOMContentLoaded", init)
